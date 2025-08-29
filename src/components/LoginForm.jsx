@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import LogoImage from '../components/LogoImage';
 
 // Styled Components
 const AuthContainer = styled.div`
@@ -9,7 +10,9 @@ const AuthContainer = styled.div`
   padding: 30px;
   border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (max-width: 768px) {
     margin: 20px 40px;
@@ -21,15 +24,11 @@ const AuthContainer = styled.div`
   }
 `;
 
-const Title = styled.h2`
-  text-align: center;
-  color: #444;
-`;
-
 const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
+   margin-top: 13%;
 
   @media (max-width: 768px) {
     gap: 10px;
@@ -37,7 +36,8 @@ const AuthForm = styled.form`
 `;
 
 const Input = styled.input`
-  padding: 12px;
+  width: 300px;
+  padding: 12px 20px;
   border: 1px solid #ccc;
   border-radius: 6px;
 
@@ -48,12 +48,19 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: #4f8ef7;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #202020;
   color: white;
   padding: 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 3px;
   cursor: pointer;
+
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   @media (max-width: 768px) {
     padding: 10px;
@@ -82,17 +89,44 @@ const AuthText = styled.p`
     font-size: 13px;
   }
 `;
+const CenteredLogo = styled(LogoImage) `
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+`;
 
 const StyledLink = styled(Link)`
-  text-decoration: underline;
-  color: #4f8ef7;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
   font-weight: bold;
 
   &:hover {
-    color: #3e7ec7;
+    opacity: 0.9;
   }
 `;
+const OptionsRow = styled.div `
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: -5px;
+`;
+
+const ShowPasswordToggle = styled.span `
+  cursor: pointer;
+  color: #202020;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+const LoginTitle = styled.p`
+  color: #333;
+  text-align: center;
+`;
+
 
 const LoginForm = () => {
   const navigate = useNavigate()
@@ -101,6 +135,8 @@ const LoginForm = () => {
     email: '',
     password: ''
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData(prev => ({
@@ -116,9 +152,11 @@ const LoginForm = () => {
   }
 
   return (
+    <>
     <AuthContainer>
-      <Title>Login</Title>
+      <CenteredLogo />
       <AuthForm onSubmit={handleSubmit}>
+         <LoginTitle>Login Your Account and start Learning</LoginTitle>
         <Input 
           type='email' 
           name='email' 
@@ -126,26 +164,32 @@ const LoginForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-        />
+          />
         <Input 
-          type='password' 
+          type={showPassword ? 'text' : 'password'} 
           name='password'
           placeholder='Enter Your Password'
           value={formData.password}
           onChange={handleChange} 
           required   
-        />
+          />
+
+            <OptionsRow>
+          <ShowPasswordToggle onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? 'Hide Password' : 'Show Password'}
+          </ShowPasswordToggle>
+          <StyledLink to="/forget-password">Forgot Password?</StyledLink>
+        </OptionsRow>
+
         <Button type='submit'>Login</Button>
       </AuthForm>    
-      <AuthLinkContainer>
+      <AuthLinkContainer> 
         <AuthText>
-          Forget Password? <StyledLink to='/forget-password'>Click here</StyledLink>
-        </AuthText>  
-        <AuthText>
-          Don’t have an account? <StyledLink to='/signup'>SignUp here</StyledLink>
+          <StyledLink to='/signup'>Dont have an Account? SignUp here</StyledLink>
         </AuthText>
       </AuthLinkContainer>
     </AuthContainer>
+  </>
   );
 };
 

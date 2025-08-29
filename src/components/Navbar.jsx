@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaSignInAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
+import LogoImage from '../components/LogoImage';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Navbar = () => {
   return (
     <NavContainer>
       <LeftSection>
-        <Logo onClick={() => navigate('./')}>LearnFlow</Logo>
+        <LogoImage />
         <NavLinks className={showMenu ? 'show' : ''}>
           <StyledLink to="/">Home</StyledLink>
           <Dropdown onClick={() => setShowDropdown(prev => !prev)}>
@@ -97,15 +98,6 @@ export const LeftSection = styled.div`
   gap: 30px;
 `;
 
-export const Logo = styled.h1`
-  margin: 0;
-  padding: 0;
-  font-size: 28px;
-  font-weight: bold;
-  color: #4f8ef7;
-  cursor: pointer;
-`;
-
 export const NavLinks = styled.div`
   display: flex;
   gap: 20px;
@@ -125,7 +117,7 @@ export const NavLinks = styled.div`
     gap: 10px;
     font-size: 24px;
     background-color: #fff;
-    color: #4f8ef7;
+    color: #333;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
   }
@@ -158,15 +150,19 @@ export const RightSection = styled.div`
 `;
 
 export const LoginButton = styled.button`
-  background-color: #4f8ef7;
-  padding: 20px 50px;
+  background-color: black;
+  padding: 15px 30px;
   font-size: 16px;
   color: #fff;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   @media (max-width: 768px) {
     display: none;

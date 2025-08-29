@@ -34,14 +34,14 @@ const Section = styled.div`
   min-width: 200px;
 
   h2, h3 {
-    color: #4f8ef7;
+    color: black;
     font-size: 18px;
     margin-bottom: 20px;
   }
 
   p {
     font-size: 16px;
-    color: #051944;
+    color: #4a5a7a;
     margin-bottom: 8px;
   }
 
@@ -61,7 +61,7 @@ const FooterLinks = styled.ul`
       transition: color 0.3s ease;
 
       &:hover {
-        color: #fff;
+        opacity: 0.8;
       }
     }
   }
@@ -72,7 +72,7 @@ const FooterBottom = styled.div`
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
-  border-top: 1px solid #4f83f7;
+  border-top: 1px solid black;
   padding-top: 20px;
   font-size: 14px;
   color: #333;
@@ -106,7 +106,6 @@ const Footer = () => {
           <h2>LearnFlow</h2>
           <p>Empowering youth with essential digital skills for the future.</p>
         </Section>
-
         <Section>
           <h3>Quick Links</h3>
           <FooterLinks>

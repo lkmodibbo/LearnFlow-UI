@@ -8,6 +8,7 @@ import InternetImage from '../assets/internet_research.jpeg';
 import AIImage from '../assets/AI-Tools.jpeg';
 import GoogleDriveImage from '../assets/file_storage.png';
 import OnlineImage from '../assets/Online_safety.png';
+import LogoImage from '../components/LogoImage';
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -92,7 +93,10 @@ const SignUpForm = () => {
   };
 
   return (
+    <>
+    
     <AuthContainer>
+      <LogoImage />
       <h2>Join LearnFlow</h2>
       <p className="auth-tagline">Start your journey to digital mastery. Get access to career-ready skills, personalized just for you.</p>
 
@@ -104,7 +108,7 @@ const SignUpForm = () => {
           value={formData.name} 
           onChange={handleChange} 
           required autoFocus 
-        />
+          />
         <input 
           type="email" 
           name="email" 
@@ -112,7 +116,7 @@ const SignUpForm = () => {
           value={formData.email} 
           onChange={handleChange} 
           required 
-        />
+          />
         <input 
           type="tel" 
           name="phone" 
@@ -120,13 +124,13 @@ const SignUpForm = () => {
           value={formData.phone} 
           onChange={handleChange} 
           required /
-        >
+          >
         <select 
           name="course" 
           value={formData.course} 
           onChange={handleChange} 
           required
-        >
+          >
           <option value="">Select Course</option>
           <option value="Gmail Basics">Gmail Basics</option>
           <option value="Google Docs Mastery">Google Docs</option>
@@ -158,11 +162,12 @@ const SignUpForm = () => {
           value={formData.confirmPassword} 
           onChange={handleChange} 
           required 
-        />
+          />
         <button type="submit">Sign Up</button>
       </AuthForm>
       <p className="have-an-account">Already have an account? <StyledLink to="/login">Login here</StyledLink> </p>
     </AuthContainer>
+    </>
   );
 };
 
@@ -170,13 +175,14 @@ export default SignUpForm;
 
 // Styled-components
 const AuthContainer = styled.div`
-  max-width: 500px;
-  margin: auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   padding: 2rem;
-  background: #fff;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 10px;
   text-align: center;
+  align-items: center;
 
   h2 {
     margin-bottom: 0.5rem;
@@ -215,32 +221,35 @@ const AuthForm = styled.form`
   gap: 1rem;
 
   input, select {
-    padding: 0.75rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
     width: 100%;
+    max-width: 600px;
+    padding: 10px 22px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 0.88rem;
     box-sizing: border-box;
 
   }
 
   button {
-    background-color: #007bff;
+    width: 100%;
+    background-color: black;
     color: white;
-    padding: 0.75rem;
+    padding: 10px 15px;
+    margin: 0 auto;
     font-size: 1rem;
     border: none;
-    border-radius: 6px;
+    border-radius: 3px;
     cursor: pointer;
 
     &:hover {
-      background-color: #0056b3;
+      opacity: 0.7;
     }
   }
 `;
 
 const StyledLink = styled(Link)`
-  color: #007bff;
+  color: black;
   text-decoration: none;
 
   &:hover {

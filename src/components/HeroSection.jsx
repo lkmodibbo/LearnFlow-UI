@@ -178,18 +178,19 @@ const CTAButtons = styled.div`
 `;
 
 const ButtonPrimary = styled.button`
-  padding: 15px 30px;
-  font-size: 1.5rem;
+  width: 135px;
+  padding: 12px 15px;
+  font-size: 20px;
   font-weight: lighter;
-  border-radius: 8px;
+  border-radius: 5px;
   margin: 10px;
-  background-color: #4f8ef7;
+  background-color: black;
   color: white;
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: #3e7ec7;
+    opacity: 0.8;
   }
 `;
 
@@ -252,7 +253,7 @@ const CourseImage = styled.img`
 
 const EnrollButton = styled.button`
   padding: 10px 25px;
-  background-color: #3e7ec7;
+  background-color: black;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -321,7 +322,7 @@ const StepCard = styled.div`
 const StepIcon = styled.div`
   font-size: 50px;
   margin-bottom: 30px;
-  color: #4f8ef7;
+  color: black;
 `;
 
 const WhyChooseUs = styled.section`

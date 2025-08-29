@@ -172,7 +172,7 @@ const ActionButtons = styled.div`
     padding: 12px 20px;
     border: 1px solid #ccc;
     color: #fff;
-    background-color: #4f8ef7;
+    background-color: black;
     border-radius: 5px;
     cursor: pointer;
   }
@@ -185,7 +185,7 @@ const CourseInfo = styled.div`
     color: #fff;
     padding: 15px 25px;
     border: none;
-    background-color: #4f8ef7;
+    background-color: black;
     border-radius: 8px;
   }
 `
@@ -195,13 +195,14 @@ const CourseContent = styled.div`
   justify-content: space-between;
   text-align: center;
   margin-top: 10px;
+  align-items: center;
  
   button {
     margin-bottom: 2rem;
   }
 
   h2{
-    color: #4f8ef7;
+    color: black;
     padding: 10px;
   }
 `

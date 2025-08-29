@@ -11,10 +11,9 @@ const Container = styled.div`
   margin: 40px auto;
   align-items: flex-start;
   gap: 40px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-
+  border: none;
+  border-radius: 0px;
+  
 
   @media (max-width: 768px){
     width: 100%;
@@ -69,7 +68,7 @@ const CourseInfo = styled.div`
 
   button {
     padding: 12px 20px;
-    background-color: #4caf50;
+    background-color: black;
     color: #fff;
     border: none;
     font-size: 16px;
@@ -77,7 +76,7 @@ const CourseInfo = styled.div`
     border-radius: 6px;
 
     &:hover {
-      background-color: #45a049;
+      opacity: 0.7;
     }
   }
 `;
@@ -103,7 +102,7 @@ const Dashboard = () => {
       <CourseInfo>
         <img src={userData.course.image} alt="course-image" />
         <p>course modules: Number of Modules</p>
-        <button onClick={() => navigate('/userspage')}>Start Course</button>
+        <button onClick={() => navigate()}>Start Course</button>
       </CourseInfo>
     </Container>
   );
