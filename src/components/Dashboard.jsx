@@ -102,7 +102,7 @@ const Dashboard = () => {
       <CourseInfo>
         <img src={userData.course.image} alt="course-image" />
         <p>course modules: Number of Modules</p>
-        <button onClick={() => navigate()}>Start Course</button>
+        <button onClick={() => navigate('/student-dashboard')}>Start Course</button>
       </CourseInfo>
     </Container>
   );

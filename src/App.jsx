@@ -9,6 +9,7 @@ import ForgetPassword from './components/ForgetPassword';
 import Dashboard from './components/Dashboard';
 import { UserProvider } from './components/UserContext';
 import LearnMore from './components/LearnMore';
+import  StudentDashboard  from './components/StudentDashboard';
 
 
 function App() {
@@ -41,6 +42,7 @@ function AppContent() {
         <Route path='/forget-password' element={<ForgetPassword />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/learnmore' element={<LearnMore />} />
+        <Route path='/student-dashboard' element={<StudentDashboard />} />
       </Routes>
     </>
   );
