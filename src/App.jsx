@@ -27,7 +27,7 @@ function AppContent() {
   const location = useLocation();
 
   // hide navbar only on signup page (you can add /login too if you want)
-  const hideNavbar = location.pathname === '/signup' || location.pathname === '/login';
+  const hideNavbar = location.pathname === '/signup' || location.pathname === '/login' || location.pathname === '/student-dashboard';
 
   return (
     <>

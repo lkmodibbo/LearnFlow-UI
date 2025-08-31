@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { UserContext } from './UserContext';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -82,7 +82,6 @@ const CourseInfo = styled.div`
 `;
 
 const Dashboard = () => {
-  const navigate = useNavigate();
   const { userData } = useContext(UserContext);
 
   if (!userData) return <p>No user Data. Please sign up</p>;
@@ -102,7 +101,9 @@ const Dashboard = () => {
       <CourseInfo>
         <img src={userData.course.image} alt="course-image" />
         <p>course modules: Number of Modules</p>
-        <button onClick={() => navigate('/student-dashboard')}>Start Course</button>
+        <Link to="/student-dashboard">
+          <button>Start Course</button>
+        </Link>
       </CourseInfo>
     </Container>
   );

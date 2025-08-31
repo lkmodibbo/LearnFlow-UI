@@ -1,19 +1,31 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { UserContext } from "./UserContext"; 
+import LogoImage from "./LogoImage";
+import { Link } from "react-router-dom";
 
 
 const StudentDashboard = () => {
-  const { userData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
+ 
 
   if (!userData) {
     return <p>Loading User Info...</p>
   }
 
+  const handleLogout = () => {
+      
+      setUserData(null);
+  }
+
   return (
     <DashboardContainer>
+      <LogoImage />
         <Header>
             <div>Student Dashboard</div>
+            <StyledLink to="/login" onClick={handleLogout}>
+              Logout
+            </StyledLink>
         </Header>
 
         <Profile>
@@ -125,16 +137,22 @@ const StudentDashboard = () => {
             </ModuleItem>
         </ModuleList>
         <Tracker>
-            <ProgressBar>
-                <div></div>
-            </ProgressBar>
-            30% Completed
+      <ProgressWrapper>
+        <ProgressBar progress="45%">
+          <div></div>
+        </ProgressBar>
+        <span>45%</span>
+      </ProgressWrapper>
         </Tracker>
     </DashboardContainer>
   )
 }
 
 export default StudentDashboard;
+
+
+
+
 
 const DashboardContainer = styled.div`
   width: 95%;
@@ -153,10 +171,26 @@ const Header = styled.div`
   align-items: center;
   font-weight: bold;
   font-size: 1.2rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 
   @media (max-width: 768px) {
     font-size: 1rem;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  background: #ff4d4d;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #e60000;
   }
 `;
 
@@ -203,8 +237,8 @@ const CourseList = styled.div`
 `;
 
 const CourseCard = styled.div`
-  min-width: 100px;
-  width: 350px;
+  /* min-width: 100px;
+  width: 350px; */
   padding: 1rem;
   background: #fff;
   border-radius: 10px;
@@ -220,14 +254,19 @@ const Strong = styled.p`
 `
 
 const Thumbnail = styled.div`
-  height: 80px;
-  background: #eee;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 150px;
+  background: #000;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
 `;
 
 const ProgressBar = styled.div`
-    width: 350px;
+  width: 350px;
   height: 6px;
   background: #eee;
   border-radius: 6px;
@@ -290,4 +329,11 @@ const Duration = styled.span`
   color: #fff;
   padding: 2px 6px;
   border-radius: 4px;
+`;
+
+const ProgressWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 `;
