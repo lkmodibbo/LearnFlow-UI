@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoImage from '../components/LogoImage';
 
@@ -129,7 +129,6 @@ const LoginTitle = styled.p`
 
 
 const LoginForm = () => {
-  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     email: '',
@@ -148,7 +147,7 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('logging in with:', formData);
-    navigate('/dashboard');
+    
   }
 
   return (
@@ -181,7 +180,10 @@ const LoginForm = () => {
           <StyledLink to="/forget-password">Forgot Password?</StyledLink>
         </OptionsRow>
 
-        <Button type='submit'>Login</Button>
+      <StyledLink to="/dashboard">
+        <Button type="button">Login</Button>
+    </StyledLink>
+
       </AuthForm>    
       <AuthLinkContainer> 
         <AuthText>

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 import whyImage from '../assets/Hero-image.webp';
 import GmailImage from '../assets/Gmail_basics.png';
 import GoogleDocsImage from '../assets/Google_docs.jpeg';
@@ -7,13 +6,10 @@ import AIImage from '../assets/AI-Tools.jpeg';
 import InternetImage from '../assets/internet_research.jpeg';
 import DriveImage from '../assets/file_storage.png';
 import OnlineImage from '../assets/Online_safety.png';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-  const navigate = useNavigate();
-
-  const handleLearnMore = () => {
-    navigate('./learnMore');
-  };
+  
 
   return (
     <HeroContainer>
@@ -21,10 +17,12 @@ const HeroSection = () => {
         <h1>Unlock Your Future with AI-powered Learning</h1>
         <p>
           Learn the skills that matter today. Personalized courses designed to make you career-ready, powered by AI. 
-          <span onClick={handleLearnMore}>Learn more</span>
+            <Link to="/learnmore">Learn more</Link>
         </p>
         <CTAButtons>
-          <ButtonPrimary onClick={() => navigate('./login')}>Get Started</ButtonPrimary>
+           <Link to="/login">
+            <ButtonPrimary>Get Started</ButtonPrimary>
+          </Link>
         </CTAButtons>
       </Content>
 
@@ -71,7 +69,9 @@ const HeroSection = () => {
             <CourseImage src={course.img} alt={course.title} />
             <h3>{course.title}</h3>
             <p>{course.desc}</p>
-            <EnrollButton onClick={() => navigate('/login')}>Enroll</EnrollButton>
+           <Link to="/login">
+              <EnrollButton>Enroll</EnrollButton>
+            </Link>
           </CourseCard>
         ))}
       </CoursesGrid>

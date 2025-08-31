@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { UserContext } from './UserContext';
 import GmailImage from '../assets/Gmail_basics.png';
@@ -11,7 +11,6 @@ import OnlineImage from '../assets/Online_safety.png';
 import LogoImage from '../components/LogoImage';
 
 const SignUpForm = () => {
-  const navigate = useNavigate();
   const { setUserData } = useContext(UserContext);
 
   const courses = [
@@ -89,7 +88,7 @@ const SignUpForm = () => {
     });
 
     console.log('Signing up with:', formData);
-    navigate('/dashboard');
+    
   };
 
   return (
@@ -163,8 +162,11 @@ const SignUpForm = () => {
           onChange={handleChange} 
           required 
           />
-        <button type="submit">Sign Up</button>
+        <StyledLink to="/dashboard">
+          <button type="submit">Sign Up</button>
+        </StyledLink>
       </AuthForm>
+
       <p className="have-an-account">Already have an account? <StyledLink to="/login">Login here</StyledLink> </p>
     </AuthContainer>
     </>

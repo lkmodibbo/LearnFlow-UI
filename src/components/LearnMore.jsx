@@ -8,7 +8,7 @@ const LearnContent = styled.div`
   @media (max-width: 768px){
     width: 450px;
     margin: 0 auto;
-    /* background-color: red; */
+   
   }
 `;
 

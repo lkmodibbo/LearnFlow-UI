@@ -1,18 +1,17 @@
-import React from 'react'
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const LogoImage = () => {
-  const navigate = useNavigate();
-
+ 
   return (
-    <LogoContainer onClick={() => navigate('/')}>
-      <LogoText>LearnFlow</LogoText>
+     <LogoContainer>
+      <StyledLink to="/">
+        <LogoText>LearnFlow</LogoText>
+      </StyledLink>
     </LogoContainer>
   );
 };
 export default LogoImage
-
 
 const LogoContainer = styled.div `
     display: flex;
@@ -20,10 +19,16 @@ const LogoContainer = styled.div `
     gap: 10px;
     cursor: pointer;
 `;
+
 const LogoText = styled.h1 `
     margin: 0;
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
     color: #333;
-`
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
