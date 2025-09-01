@@ -7,14 +7,10 @@ import { Link } from "react-router-dom";
 
 const StudentDashboard = () => {
   const { userData, setUserData } = useContext(UserContext);
- 
-
   if (!userData) {
     return <p>Loading User Info...</p>
   }
-
   const handleLogout = () => {
-      
       setUserData(null);
   }
 

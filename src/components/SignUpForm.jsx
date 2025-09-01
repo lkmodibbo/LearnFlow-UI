@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { UserContext } from './UserContext';
 import GmailImage from '../assets/Gmail_basics.png';
@@ -12,6 +12,7 @@ import LogoImage from '../components/LogoImage';
 
 const SignUpForm = () => {
   const { setUserData } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const courses = [
     {
@@ -86,8 +87,10 @@ const SignUpForm = () => {
       duration: courseDetails.duration,
       enrolledAt: new Date().toLocaleDateString()
     });
+    navigate('/dashboard')
 
-    console.log('Signing up with:', formData);
+    // console.log('Signing up with:', formData);
+
     
   };
 
@@ -97,8 +100,8 @@ const SignUpForm = () => {
     <AuthContainer>
       <LogoImage />
       <h2>Join LearnFlow</h2>
-      <p className="auth-tagline">Start your journey to digital mastery. Get access to career-ready skills, personalized just for you.</p>
-
+      <p className="auth-tagline">
+      Start your journey to digital mastery. Get access to career-ready skills, personalized just for you.</p>
       <AuthForm onSubmit={handleSubmit}>
         <input 
           type="text" 
@@ -146,7 +149,14 @@ const SignUpForm = () => {
           <option value="35-44">35 - 44</option>
           <option value="45plus">45 and above</option>
         </select>
-        <input name="password" type="password" placeholder="Enter Your Password" value={formData.password} onChange={handleChange} required />
+          <input 
+            name="password" 
+            type="password" 
+            placeholder="Enter Your Password" 
+            value={formData.password} 
+            onChange={handleChange} 
+            required 
+          />
         {formData.password && (
           <small>
             {formData.password.length < 8
@@ -162,9 +172,7 @@ const SignUpForm = () => {
           onChange={handleChange} 
           required 
           />
-        <StyledLink to="/dashboard">
           <button type="submit">Sign Up</button>
-        </StyledLink>
       </AuthForm>
 
       <p className="have-an-account">Already have an account? <StyledLink to="/login">Login here</StyledLink> </p>
