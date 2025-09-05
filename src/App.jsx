@@ -9,7 +9,9 @@ import ForgetPassword from './components/ForgetPassword';
 import Dashboard from './components/Dashboard';
 import { UserProvider } from './components/UserContext';
 import LearnMore from './components/LearnMore';
-import  StudentDashboard  from './components/StudentDashboard';
+// import  StudentDashboard  from './components/StudentDashboard';
+import StudentsDashboard from './components/Studentsdashboard';
+import ModulePlayer from './components/ModulePlayer';
 
 
 function App() {
@@ -42,7 +44,8 @@ function AppContent() {
         <Route path='/forget-password' element={<ForgetPassword />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/learnmore' element={<LearnMore />} />
-        <Route path='/student-dashboard' element={<StudentDashboard />} />
+        <Route path='/student-dashboard' element={<StudentsDashboard />} />
+        <Route path='/modulue/:moduleId' element={<ModulePlayer />}/>
       </Routes>
     </>
   );

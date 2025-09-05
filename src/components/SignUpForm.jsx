@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { UserContext } from './UserContext';
+import  UserContext  from './UserContext';
 import GmailImage from '../assets/Gmail_basics.png';
 import GoogleImage from '../assets/Google_docs.jpeg';
 import InternetImage from '../assets/internet_research.jpeg';
@@ -90,7 +90,6 @@ const SignUpForm = () => {
     navigate('/dashboard')
 
     // console.log('Signing up with:', formData);
-
     
   };
 

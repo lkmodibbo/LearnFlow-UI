@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { UserContext } from './UserContext';
+import  UserContext  from './UserContext';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
